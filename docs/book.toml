@@ -1,0 +1,6 @@
+[book]
+authors = ["wangyijia"]
+language = "en"
+multilingual = false
+src = "src"
+title = "InfiniTensor训练营基础阶段指导书"
