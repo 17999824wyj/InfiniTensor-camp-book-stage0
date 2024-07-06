@@ -238,7 +238,7 @@
 <p>因为模型中，有一个“模型参数”文件，其占用磁盘较大，示例占了 2.2G，导致 git 拉取时，极其容易超时，所以使用此参数跳过此文件，之后我们手动对需要用 LFS 下载的文件进行下载。</p>
 <h4 id="手动下载方式"><a class="header" href="#手动下载方式">手动下载方式：</a></h4>
 <p>在镜像网站上，点击下面框起来的内容：
-<img src="../resources/%E9%95%9C%E5%83%8F%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD.png" alt="在镜像上手动下载模型LFS文件" /></p>
+<img src="./resources/%E9%95%9C%E5%83%8F%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD.png" alt="在镜像上手动下载模型LFS文件" /></p>
 <p>注：手动下载的两个文件，一定要放置到刚刚用 git 下载的目录里！</p>
 <h3 id="3-编译模型"><a class="header" href="#3-编译模型">3. 编译模型</a></h3>
 <h4 id="目录路径展示"><a class="header" href="#目录路径展示">目录路径展示</a></h4>
@@ -248,8 +248,6 @@
     |-- # 此部分就是引擎仓库，具体内容除Cargo.toml，略
     |-- Cargo.toml
     |-- ...
-|-- cuda-driver
-    |-- # 这部分存放了依赖项，可以不用，后续会介绍
 |-- models
     |-- # 此部分是模型文件夹，我用它来存放所有的模型
     |-- TinyLlama-1.1B-Chat-v1.0
@@ -279,7 +277,7 @@ cargo cast --model D:/project-8/models/TinyLlama-1.1B-Chat-v1.0/ --dt f16
 cargo chat --model D:/project-8/models/TinyLlama-1.1B-Chat-v1.0_F16
 </code></pre>
 <p>展示输出：
-<img src="../resources/%E5%BC%95%E6%93%8E%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="引擎运行结果图" /></p>
+<img src="./resources/%E5%BC%95%E6%93%8E%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="引擎运行结果图" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="项目的其它功能"><a class="header" href="#项目的其它功能">项目的其它功能</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="q--a"><a class="header" href="#q--a">Q &amp; A</a></h1>
 <ol>
