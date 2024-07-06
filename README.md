@@ -1,2 +1,3 @@
 # InfiniTensor-camp-book-stage0
-This is a book for InfiniTensor-camp, giving a  guide for stage-0, for people to reference.
+
+本书用于为 InfiniTensor 训练营项目，提供导学阶段的学习引导。
