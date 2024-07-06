@@ -179,6 +179,8 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第一章环境配置"><a class="header" href="#第一章环境配置">第一章：环境配置</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="git-环境"><a class="header" href="#git-环境">Git 环境</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="windows-下的-rust-环境"><a class="header" href="#windows-下的-rust-环境">windows 下的 Rust 环境</a></h1>
+<p>在 windows 上的 rust 配置，可以自行搜教程，如果我没记错，在 VS-Code 里面直接装“rust-anaylzer”这个插件就行了，不用很麻烦。<br />
+也可能会需要再去配置 rustc 工具链，但我不记得我在 windows 下配置过。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux-下的-rust-环境"><a class="header" href="#linux-下的-rust-环境">linux 下的 Rust 环境</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第二章导学阶段基本信息"><a class="header" href="#第二章导学阶段基本信息">第二章：导学阶段基本信息</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="训练营教学系统使用引导"><a class="header" href="#训练营教学系统使用引导">训练营教学系统使用引导</a></h1>
@@ -193,11 +195,98 @@
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第四章打卡-infinilm"><a class="header" href="#第四章打卡-infinilm">第四章：打卡 InfiniLM</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="项目架构讲解"><a class="header" href="#项目架构讲解">项目架构讲解</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="项目的本地化部署"><a class="header" href="#项目的本地化部署">项目的本地化部署</a></h1>
+<h2 id="本节目录"><a class="header" href="#本节目录">本节目录</a></h2>
+<ol>
+<li>拉取引擎仓库</li>
+<li>下载模型</li>
+<li>编译模型</li>
+<li>运行推理引擎</li>
+</ol>
+<h2 id="详细步骤"><a class="header" href="#详细步骤">详细步骤</a></h2>
+<h3 id="1-拉取引擎仓库"><a class="header" href="#1-拉取引擎仓库">1. 拉取引擎仓库</a></h3>
+<pre><code class="language-bash">git clone https://github.com/InfiniTensor/InfiniLM
+</code></pre>
+<p>注：有时候网络质量不好导致拉取超时，则可以尝试等网络质量好的时候再下载！</p>
+<h3 id="2-下载模型"><a class="header" href="#2-下载模型">2. 下载模型</a></h3>
+<h4 id="下载命令"><a class="header" href="#下载命令">下载命令</a></h4>
+<p>注：此部分以“TinyLlama-1.1B-Chat-v1.0”模型为例，此模型的源下载网站为：“ https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0 ”（需要魔法），建议使用 “ https://hf-mirror.com/TinyLlama/TinyLlama-1.1B-Chat-v1.0 ”的镜像，下面以从镜像网站下载为例：</p>
+<p>输入命令：</p>
+<pre><code class="language-bash">GIT_LFS_SKIP_SMUDGE=1 git clone https://hf-mirror.com/TinyLlama/TinyLlama-1.1B-Chat-v1.0
+</code></pre>
+<h4 id="参数解释"><a class="header" href="#参数解释">参数解释：</a></h4>
+<p>GIT_LFS_SKIP_SMUDGE=1：跳过 LFS 的 smudge 操作，即跳过 LFS 的文件预处理操作。</p>
+<p>因为模型中，有一个“模型参数”文件，其占用磁盘较大，示例占了 2.2G，导致 git 拉取时，极其容易超时，所以使用此参数跳过此文件，之后我们手动对需要用 LFS 下载的文件进行下载。</p>
+<h4 id="手动下载方式"><a class="header" href="#手动下载方式">手动下载方式：</a></h4>
+<p>在镜像网站上，点击下面框起来的内容：
+<img src="../resources/%E9%95%9C%E5%83%8F%E6%A8%A1%E5%9E%8B%E4%B8%8B%E8%BD%BD.png" alt="在镜像上手动下载模型LFS文件" /></p>
+<p>注：手动下载的两个文件，一定要放置到刚刚用 git 下载的目录里！</p>
+<h3 id="3-编译模型"><a class="header" href="#3-编译模型">3. 编译模型</a></h3>
+<h4 id="目录路径展示"><a class="header" href="#目录路径展示">目录路径展示</a></h4>
+<p>此部分为展示我的目录路径，不需要读者做相同操作，只是方便读者阅读使用。</p>
+<pre><code class="language-python">D:/project-8/
+|-- InfiniLM
+    |-- # 此部分就是引擎仓库，具体内容除Cargo.toml，略
+    |-- Cargo.toml
+    |-- ...
+|-- cuda-driver
+    |-- # 这部分存放了依赖项，可以不用，后续会介绍
+|-- models
+    |-- # 此部分是模型文件夹，我用它来存放所有的模型
+    |-- TinyLlama-1.1B-Chat-v1.0
+        |-- # 此部分就是刚刚下载的模型，里面必须至少有以下3种文件：
+        |-- config.json                 # 模型配置文件
+        |-- model.safetesnors           # 模型参数文件
+        |-- tokenizer.model/vocab.txt   # 分词器词表
+        |-- ...
+    |-- TinyLlama-1.1B-Chat-v1.0_F16
+        |-- # 此部分最开始没有，在我们“精度转化”操作后，得到此文件夹
+        |-- ...
+|-- reports
+    |-- # 此部分是我存放报告用的
+    |-- ...
+</code></pre>
+<h4 id="精度转化"><a class="header" href="#精度转化">精度转化</a></h4>
+<pre><code class="language-bash">cd InfiniLM # 切换至InfiniLM目录内
+# 然后参照官方文档
+# 我们直接编译刚刚下载的模型，要先转化精度为f16
+# 我的目录路径如上所示，请自行修改下面参数：
+cargo cast --model D:/project-8/models/TinyLlama-1.1B-Chat-v1.0/ --dt f16
+# 然后，就会在 D:/project-8/models/ 文件夹内生成一个 TinyLlama-1.1B-Chat-v1.0_F16 文件夹
+</code></pre>
+<h4 id="更改依赖"><a class="header" href="#更改依赖">更改依赖</a></h4>
+<pre><code class="language-bash"># 打开InfiniLM/Cargo.toml 文件，可以在最下面看到 dependencies
+# 默认的是依赖于远程仓库，这样，在我们实际编译时，如果网络质量不行
+# 那就很折磨，所以可以将其依赖拉取到本地
+cd D:/project-8
+git clone https://github.com/YdrMaster/cuda-driver
+# 注：不必考虑版本号！暂时是这样的！
+</code></pre>
+<p>然后，在 project-8/InfiniLM/Cargo.toml 文件中，将 dependencies 内最下面的内容，全部进行替换，替换规则如下所示：</p>
+<pre><code class="language-toml">[dependencies]
+# 原始内容：
+cuda = { git = "https://github.com/YdrMaster/cuda-driver", recv = "cb2a18d5" }
+# 替换成下面的，注，在Linux下不支持环境变量！没有测试支不支持相对路径，但绝对路径肯定没问题。
+cuda = { path = "D:/project-8/cuda-driver/cuda" }
+
+# 共需要替换四个，分别为：cuda、cublas、nccl、search-cuda-tools
+</code></pre>
+<h3 id="4-运行推理引擎"><a class="header" href="#4-运行推理引擎">4. 运行推理引擎</a></h3>
+<pre><code class="language-bash">cd InfiniLM # 切换至InfiniLM目录内
+# 然后参照官方文档，即可完成
+cargo chat --model D:/project-8/models/TinyLlama-1.1B-Chat-v1.0_F16
+</code></pre>
+<p>展示输出：
+<img src="../resources/%E5%BC%95%E6%93%8E%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="引擎运行结果图" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="项目的其它功能"><a class="header" href="#项目的其它功能">项目的其它功能</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="q--a"><a class="header" href="#q--a">Q &amp; A</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="附录-a可供参考的资料"><a class="header" href="#附录-a可供参考的资料">附录 A：可供参考的资料</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="附录-b能够运行项目的设备合集"><a class="header" href="#附录-b能够运行项目的设备合集">附录 B：能够运行项目的设备合集</a></h1>
-
+<p>目前来看，大部分设备都应该可以，甚至手机也可以！<br />
+我的电脑内存 16G，可以运行，大约消耗了磁盘 10G 以内的空间</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">设备型号</th><th style="text-align: center">显卡型号</th><th style="text-align: center">设备系统</th><th style="text-align: center">设备架构</th><th style="text-align: center">是否能运行</th></tr></thead><tbody>
+<tr><td style="text-align: center">Huawei Matebook D15</td><td style="text-align: center">AMD Radeon(TM) Vega 8 Graphics</td><td style="text-align: center">Windows 11 家庭中文版</td><td style="text-align: center">x86 指令集</td><td style="text-align: center">是</td></tr>
+</tbody></table>
+</div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
