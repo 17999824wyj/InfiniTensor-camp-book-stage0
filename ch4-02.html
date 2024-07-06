@@ -193,7 +193,6 @@
 <ul>
 <li><a href="#%E7%9B%AE%E5%BD%95%E8%B7%AF%E5%BE%84%E5%B1%95%E7%A4%BA">目录路径展示</a></li>
 <li><a href="#%E7%B2%BE%E5%BA%A6%E8%BD%AC%E5%8C%96">精度转化</a></li>
-<li><a href="#%E6%9B%B4%E6%94%B9%E4%BE%9D%E8%B5%96">更改依赖</a></li>
 </ul>
 </li>
 <li><a href="#4-%E8%BF%90%E8%A1%8C%E6%8E%A8%E7%90%86%E5%BC%95%E6%93%8E">4. 运行推理引擎</a></li>
@@ -252,23 +251,6 @@
 # 我的目录路径如上所示，请自行修改下面参数：
 cargo cast --model D:/project-8/models/TinyLlama-1.1B-Chat-v1.0/ --dt f16
 # 然后，就会在 D:/project-8/models/ 文件夹内生成一个 TinyLlama-1.1B-Chat-v1.0_F16 文件夹
-</code></pre>
-<h4 id="更改依赖"><a class="header" href="#更改依赖">更改依赖</a></h4>
-<pre><code class="language-bash"># 打开InfiniLM/Cargo.toml 文件，可以在最下面看到 dependencies
-# 默认的是依赖于远程仓库，这样，在我们实际编译时，如果网络质量不行
-# 那就很折磨，所以可以将其依赖拉取到本地
-cd D:/project-8
-git clone https://github.com/YdrMaster/cuda-driver
-# 注：不必考虑版本号！暂时是这样的！
-</code></pre>
-<p>然后，在 project-8/InfiniLM/Cargo.toml 文件中，将 dependencies 内最下面的内容，全部进行替换，替换规则如下所示：</p>
-<pre><code class="language-toml">[dependencies]
-# 原始内容：
-cuda = { git = "https://github.com/YdrMaster/cuda-driver", recv = "cb2a18d5" }
-# 替换成下面的，注，在Linux下不支持环境变量！没有测试支不支持相对路径，但绝对路径肯定没问题。
-cuda = { path = "D:/project-8/cuda-driver/cuda" }
-
-# 共需要替换四个，分别为：cuda、cublas、nccl、search-cuda-tools
 </code></pre>
 <h3 id="4-运行推理引擎"><a class="header" href="#4-运行推理引擎">4. 运行推理引擎</a></h3>
 <pre><code class="language-bash">cd InfiniLM # 切换至InfiniLM目录内
