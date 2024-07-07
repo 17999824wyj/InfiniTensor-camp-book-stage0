@@ -14,7 +14,7 @@
 - [第三章：基本 Git 使用与 Github 流水线（Action）入门](ch3-00.md)
   - [常用 Git 指令](ch3-01.md)
   - [Github 使用入门](ch3-02.md)
-  - [流水线常见问题与解决方案](ch3-03.md)
+  - [GitHub Actions 常见问题与解决方案](ch3-03.md)
 - [第四章：打卡 InfiniLM](ch4-00.md)
   - [项目架构讲解](ch4-01.md)
   - [项目的本地化部署](ch4-02.md)
