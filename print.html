@@ -270,7 +270,17 @@ git config --global user.email "你的 git 账户默认的邮箱地址/常用邮
 </li>
 </ul>
 <h2 id="参考教程"><a class="header" href="#参考教程">参考教程</a></h2>
-<p>请按照<a href="https://blog.csdn.net/xinyingzai/article/details/135459640">Windows 下 Rust 开发环境搭建</a>进行配置，这篇教程写的很详细。</p>
+<p>请按照<a href="https://learn.microsoft.com/zh-cn/windows/dev-environment/rust/setup#install-visual-studio-recommended-or-the-microsoft-c-build-tools">Windows 下 Rust 开发环境搭建</a>进行配置，官方文档上写的很详细。</p>
+<blockquote>
+<p><strong>NOTICE</strong> Windows 用户推荐采用原生 Windows 环境开发 Rust 项目。</p>
+</blockquote>
+<blockquote>
+<p><strong>NOTICE</strong> Rust 工具链依赖 Visual Studio 作为基础，下述简单步骤假设用户已经准备好 Visual Studio 或 Microsoft C++ 生成工具。</p>
+</blockquote>
+<p>如图所示，下载并运行安装程序。</p>
+<p><img src="./resources/Rust-%E9%A6%96%E9%A1%B5.png" alt="Download Installer" /></p>
+<p>Just press enter!</p>
+<p><img src="./resources/Rust-%E5%91%BD%E4%BB%A4%E8%A1%8C.png" alt="Install Rust" /></p>
 <h2 id="vs-code-插件"><a class="header" href="#vs-code-插件">VS Code 插件</a></h2>
 <p>在 Windows 下，比较推荐使用 VS Code 进行 Rust 开发，如果我没记错，在 VS-Code 里面直接装“rust-anaylzer”这个插件就行了，不用做其它麻烦的操作。</p>
 <h2 id="特殊说明"><a class="header" href="#特殊说明">特殊说明</a></h2>
@@ -925,7 +935,47 @@ ls
 </li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="附录-a可供参考的资料"><a class="header" href="#附录-a可供参考的资料">附录 A：可供参考的资料</a></h1>
-<p>暂未完工</p>
+<h2 id="rust-学习资料"><a class="header" href="#rust-学习资料">Rust 学习资料</a></h2>
+<p><strong>入门书籍：</strong></p>
+<ol>
+<li><a href="https://doc.rust-lang.org/rust-by-example/index.html">Rust by Example</a></li>
+<li><a href="https://course.rs/about-book.html">Rust 语言圣经</a></li>
+<li><a href="https://tourofrust.com/TOC_zh-cn.html">Rust 语言之旅</a></li>
+<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+</ol>
+<p><strong>入门课程：</strong></p>
+<ol>
+<li><a href="https://lab.cs.tsinghua.edu.cn/rust/">清华计算机系大一学生 2022 暑期课程：Rust 程序设计训练</a></li>
+<li><a href="https://reberhardt.com/cs110l/spring-2020/">CS 110L: Safety in Systems Programming : spring 2020</a></li>
+</ol>
+<p><strong>小练习：</strong></p>
+<ol>
+<li><a href="https://github.com/rust-lang/rustlings/">rustlings</a></li>
+<li><a href="https://dtolnay.github.io/rust-quiz/1">32 Rust Quizes</a></li>
+<li><a href="https://github.com/sunface/rust-by-practice">Rust 语言实战</a>（Rust 语言圣经配套习题）</li>
+</ol>
+<p><strong>进阶：</strong></p>
+<ol>
+<li><a href="https://nomicon.purewhite.io/intro.html">死灵书</a></li>
+<li><a href="https://rust-unofficial.github.io/too-many-lists/">Learn Rust With Entirely Too Many Linked Lists</a></li>
+<li><a href="https://doc.rust-lang.org/stable/cargo/">The Cargo Book</a></li>
+<li><a href="https://github.com/TianyiShi2001/Algorithms">Algorithm in Rust</a>: 基于 Rust 语言的经典算法</li>
+</ol>
+<p><strong>其它：</strong></p>
+<p><a href="https://cheats.rs/">Rust Languange Cheat Sheet</a></p>
+<h2 id="git-学习资料"><a class="header" href="#git-学习资料">Git 学习资料</a></h2>
+<ol>
+<li><a href="https://git-scm.com/book/zh/v2">Pro Git</a></li>
+<li><a href="https://www.runoob.com/git/git-tutorial.html">Git 教程 | 菜鸟教程</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git 教程 | 廖雪峰</a></li>
+<li><a href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></li>
+</ol>
+<h2 id="线代基础"><a class="header" href="#线代基础">线代基础</a></h2>
+<ol>
+<li><a href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/syllabus/">MIT18.06: Linear Algebra</a></li>
+<li><a href="https://www.bilibili.com/video/BV1ys411472E/?share_source=copy_web&amp;vd_source=bd0d9cfe83bf4e5e5e8e8ceba827e4b7">线性代数的本质-3Blue1Brown</a></li>
+<li><a href="https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra?tab=readme-ov-file">The Art of Linear Algebra</a></li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="附录-b能够运行项目的设备合集"><a class="header" href="#附录-b能够运行项目的设备合集">附录 B：能够运行项目的设备合集</a></h1>
 <p>目前来看，大部分设备都应该可以，甚至手机也可以！<br />
 我的电脑内存 16G，可以运行，大约消耗了磁盘 10G 以内的空间</p>
