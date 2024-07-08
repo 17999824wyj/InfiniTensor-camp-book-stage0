@@ -266,6 +266,7 @@ git config --global user.email "你的 git 账户默认的邮箱地址/常用邮
 <li><a href="ch1-02.html#%E5%8F%82%E8%80%83%E6%95%99%E7%A8%8B">参考教程</a></li>
 <li><a href="ch1-02.html#vs-code-%E6%8F%92%E4%BB%B6">VS Code 插件</a></li>
 <li><a href="ch1-02.html#%E7%89%B9%E6%AE%8A%E8%AF%B4%E6%98%8E">特殊说明</a></li>
+<li><a href="ch1-02.html#wsl-%E6%94%AF%E6%8C%81">WSL 支持</a></li>
 </ul>
 </li>
 </ul>
@@ -285,6 +286,19 @@ git config --global user.email "你的 git 账户默认的邮箱地址/常用邮
 <p>在 Windows 下，比较推荐使用 VS Code 进行 Rust 开发，如果我没记错，在 VS-Code 里面直接装“rust-anaylzer”这个插件就行了，不用做其它麻烦的操作。</p>
 <h2 id="特殊说明"><a class="header" href="#特殊说明">特殊说明</a></h2>
 <p>在下载 rust 工具时，<strong>注意 rustc 版本号，至少 rust version 1.79.0 (129f3b996 2024-06-10)</strong>。</p>
+<h2 id="wsl-支持"><a class="header" href="#wsl-支持">WSL 支持</a></h2>
+<blockquote>
+<p><strong>NOTICE</strong> 仅针对已有配置好的 WSL2 且不方便在原生 Windows 环境开发的情况，因此配置 WSL2 的步骤不再介绍。</p>
+</blockquote>
+<blockquote>
+<p><strong>NOTICE</strong> Windows 用户首选原生 Windows 环境，其次 WSL2，<strong>不推荐</strong>使用第三方虚拟机软件。</p>
+</blockquote>
+<blockquote>
+<p>第三方虚拟机软件(如 VMware)在使用 GPU 加速项目的运行时，免费版的疑似完全不支持 GPU 映射，这导致你的计算机内明明有 GPU，但在虚拟机中看不到 GPU，只能使用 CPU 进行计算，这会导致你的项目在模型参数量较大时，运行速度非常慢，因此不推荐使用。</p>
+</blockquote>
+<p>在 WSL2 Bash 中使用此命令安装 Rust（Just press enter!）：</p>
+<pre><code class="language-bash">curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux-下的-rust-环境"><a class="header" href="#linux-下的-rust-环境">linux 下的 Rust 环境</a></h1>
 <p><strong>注：本节内容转载自<a href="https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter0/5setup-devel-env.html">rCore-Tutorial-Book 第三版</a></strong></p>
 <h2 id="本节目录-2"><a class="header" href="#本节目录-2">本节目录</a></h2>
@@ -330,6 +344,10 @@ export ftp_proxy=http://127.0.0.1:1080
 <h2 id="特殊说明-1"><a class="header" href="#特殊说明-1">特殊说明</a></h2>
 <p>以下非转载：</p>
 <p><strong>注：在我们的导学阶段，工具链版本至少为：rust version 1.79.0 (129f3b996 2024-06-10)</strong></p>
+<p>如果曾经下载过 Rust，
+可以通过以下命令来更新：</p>
+<pre><code class="language-bash">rustup update
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="第二章导学阶段基本信息"><a class="header" href="#第二章导学阶段基本信息">第二章：导学阶段基本信息</a></h1>
 <h2 id="本章概述-1"><a class="header" href="#本章概述-1">本章概述</a></h2>
 <p>本章主要介绍训练营导学阶段的基本信息，包括教学系统使用引导、导学阶段视频课程链接与学习引导、训练营教学安排以及教学系统常见问题与解决方案。</p>
