@@ -871,7 +871,7 @@ cargo service -h
 <p>大模型是建立在“随机加权”这一机制下的，其大致的工作原理是，在生成文本(即进行回答)时，会根据模型训练出来的权重，随机选择下一个词，而权重越高，选择的概率越大。</p>
 <p>在实施词汇选择的过程中，模型首先筛选出一个“备选词集”，然后从这个集合中选定一个词汇作为输出。top_k 就是决定这批“备选词”的数量的参数。</p>
 <p>对于 temperature 参数，其较难解释，可以简单的理解为“偏移量”，当在备选词集合中挑选词汇时，朴素的想法是，直接挑选概率最高的词，但这会导致，只要你的提问不变，那么每次生成的文本就都完全一样，因此，引入 temperature 参数，使得在备选词集合中，概率最高的词，被选中的概率降低，而其它词被选中的概率增加，从而使得生成的文本更加随机。</p>
-<p>对于 top_p 参数，它根据概率分布的累积概率来选择候选词汇。具体来说，模型会根据每个词汇的概率进行排序，然后选择累积概率达到 top_p 值的那部分词汇作为候选集。例如，如果 top_p 设置为 0.9，那么模型会选出概率最高的词汇，直到它们的累积概率达到 0.9。在候选集中，每个词汇最终被选中的概率是相等的。top_p 的推荐取值范围通常在[0.5, 1.0]之间，这个值决定了采样的范围，值越低，采样的词汇越多，文本的多样性越高，值越高，高于此范围的、能够被采样的词汇越少，文本的多样性越低。</p>
+<p>对于 top_p 参数，它根据概率分布的累积概率来选择候选词汇。具体来说，模型会根据每个词汇的概率进行排序，然后选择累积概率达到 top_p 值的那部分词汇作为候选集。例如，如果 top_p 设置为 0.9，那么模型会选出概率最高的词汇，直到它们的累积概率达到 0.9。在候选集中，每个词汇最终被选中的概率是相等的。top_p 的推荐取值范围通常在[0.5, 1.0]之间，这个值决定了采样的范围，值越低，采样的词汇越多，文本的多样性越高，值越高，概率加和后高于此值的、最终可能能够被采样的词汇就越多，文本的多样性越高。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="q--a"><a class="header" href="#q--a">Q &amp; A</a></h1>
 <ol>
 <li>
@@ -997,11 +997,17 @@ ls
 <div style="break-before: page; page-break-before: always;"></div><h1 id="附录-b能够运行项目的设备合集"><a class="header" href="#附录-b能够运行项目的设备合集">附录 B：能够运行项目的设备合集</a></h1>
 <p>目前来看，大部分设备都应该可以，甚至手机也可以！<br />
 我的电脑内存 16G，可以运行，大约消耗了磁盘 10G 以内的空间</p>
-<div class="table-wrapper"><table><thead><tr><th style="text-align: center">设备型号</th><th style="text-align: center">显卡型号</th><th style="text-align: center">设备系统</th><th style="text-align: center">设备架构</th><th style="text-align: center">是否能运行</th></tr></thead><tbody>
-<tr><td style="text-align: center">Huawei Matebook D15</td><td style="text-align: center">AMD Radeon(TM) Vega 8 Graphics</td><td style="text-align: center">Windows 11 家庭中文版</td><td style="text-align: center">x86 指令集</td><td style="text-align: center">是</td></tr>
+<div class="table-wrapper"><table><thead><tr><th>CPU 型号</th><th>显卡型号</th><th>内存大小</th><th>设备系统</th><th>设备架构</th></tr></thead><tbody>
+<tr><td>AMD Ryzen</td><td>AMD Radeon(TM) Vega 8 Graphics</td><td>16G</td><td>Windows 11 家庭版</td><td>x86 指令集</td></tr>
+<tr><td>13th Gen Intel(R) Core(TM) i9-13900K</td><td>GeForce RTX 3090</td><td>64G</td><td>archlinux</td><td>x64</td></tr>
+<tr><td>12th Gen Intel(R) Core(TM) i5-1240P</td><td></td><td>16G</td><td>Windows 11 家庭版</td><td>x86 指令集</td></tr>
+<tr><td>AMD Ryzen 7 7735H</td><td>NVIDIA GeForce RTX4050</td><td>16G</td><td>windows11 家庭版</td><td>x64</td></tr>
+<tr><td>Intel i7-8650U (8) @ 4.200GHz</td><td>Intel UHD Graphics 620</td><td>16G</td><td>Ubuntu 22.04.4 LTS</td><td>x86 指令集</td></tr>
+<tr><td>Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz</td><td>NVIDIA GeForce RTX 2080 Ti</td><td>32</td><td>Windows 10 专业版（20H2）</td><td>x64</td></tr>
+<tr><td>13th Gen Intel(R) Core(TM) i7-13700H</td><td>NVIDIA GeForce RTX 4060 Laptop GPU</td><td>64.0 GB</td><td>Windows 11 Home</td><td>x64</td></tr>
 </tbody></table>
 </div>
-<p>暂未完工，待整合：OS 训练营里打卡的设备。</p>
+<p>此表格仍在不断更新中……</p>
 
                     </main>
 
