@@ -191,14 +191,18 @@
 </ul>
 <h2 id="通过-直接目录-使用此系统"><a class="header" href="#通过-直接目录-使用此系统">通过 "直接目录" 使用此系统</a></h2>
 <p>通过直接目录的方式添加测试目录，需要学员将目标测试目录克隆到评分系统中：</p>
-<pre><code class="language-bash">git clone &lt;target-test-repo&gt; ./exams
+<pre><code class="language-bash"># 首先进入到exam-grading的项目目录内
+cd exam-grading
+git clone &lt;target-test-repo&gt; ./exams
 cd exams
 # 确保为最新
 git pull
 </code></pre>
 <h2 id="通过-子模块-使用此系统"><a class="header" href="#通过-子模块-使用此系统">通过 "子模块" 使用此系统</a></h2>
 <p>子模块方式则只需将对应测试目录以子模块的方式加入评分系统即可：</p>
-<pre><code class="language-bash"># 下面尖括号内的内容，替换为你刚刚新建的那个远程仓库的地址
+<pre><code class="language-bash"># 首先进入到exam-grading的项目目录内
+cd exam-grading
+# 下面尖括号内的内容，替换为你刚刚新建的那个远程仓库的地址
 # 第二个参数，请写死为“exams”！如果没有，那么测试不会运行！
 git submodule add &lt;target-test-repo&gt; ./exams
 # 确保为最新
