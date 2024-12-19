@@ -23,5 +23,6 @@
   - [下载环境](ch5-01.md)
   - [实际操作](ch5-02.md)
 - [Q & A](problem.md)
+  - [2024 夏秋季 Q & A](./problems/2024s.md)
 - [附录 A：可供参考的资料](appendix-A.md)
 - [附录 B：能够运行项目的设备合集](appendix-B.md)
