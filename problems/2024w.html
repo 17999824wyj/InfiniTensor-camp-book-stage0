@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>附录 A：可供参考的资料 - InfiniTensor训练营导学阶段指导书</title>
+        <title>2024 冬季 Q &amp; A - InfiniTensor训练营导学阶段指导书</title>
 
 
         <!-- Custom HTML head -->
@@ -12,32 +12,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
 
 
         <!-- Provide site root to javascript -->
         <script>
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../toc.js"></script>
     </head>
     <body>
     <div id="body-container">
@@ -89,7 +89,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -123,7 +123,7 @@
                     <h1 class="menu-title">InfiniTensor训练营导学阶段指导书</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -152,59 +152,60 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="附录-a可供参考的资料"><a class="header" href="#附录-a可供参考的资料">附录 A：可供参考的资料</a></h1>
-<p><strong>注：选择适合自己的！</strong></p>
-<h2 id="rust-学习资料"><a class="header" href="#rust-学习资料">Rust 学习资料</a></h2>
-<p><strong>入门书籍：</strong></p>
+                        <h1 id="q--a"><a class="header" href="#q--a">Q &amp; A</a></h1>
+<h2 id="目录"><a class="header" href="#目录">目录</a></h2>
+<ul>
+<li><a href="#q--a">Q &amp; A</a>
+<ul>
+<li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
+<li><a href="#1-cpp-%E7%AC%AC-30-%E9%A2%98">1. Cpp 第 30 题</a></li>
+<li><a href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E8%BF%87%E4%BA%86%E6%8F%90%E4%BA%A4%E5%90%8E%E6%A6%9C%E5%8D%95%E4%B8%8A%E8%BF%98%E6%98%AF%E6%B2%A1%E6%9C%89%E6%88%91">2. 为什么本地测试过了，提交后榜单上还是没有我？</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-cpp-第-30-题"><a class="header" href="#1-cpp-第-30-题">1. Cpp 第 30 题</a></h2>
+<p>有同学提到，Cpp 的析构顺序与平台是相关的，具体情况如下：</p>
+<p>在 windows 里(MSVC)：</p>
+<p align="center">
+<image src="./resources/win-析构.png" style="display: inline-block;" width=60%>
+</p>
+<p>在 kali 里(gcc)：</p>
+<p align="center">
+<image src="./resources/kali-析构.png" style="display: inline-block;" width=60%>
+</p>
+<p>可以看到，虽然代码一样，但析构顺序是不同的。此问题的解决方法是，请确保析构顺序是确定的，即以 CI 中的 gcc 顺序为标准。</p>
+<h2 id="2-为什么本地测试过了提交后榜单上还是没有我"><a class="header" href="#2-为什么本地测试过了提交后榜单上还是没有我">2. 为什么本地测试过了，提交后榜单上还是没有我？</a></h2>
+<p>这个情况非常常见...，但根据经验，只有极小部分是由于训练营的后端出现了问题，更大可能是你的操作出现了问题，大致排查的流程如下：</p>
 <ol>
-<li><a href="https://doc.rust-lang.org/rust-by-example/index.html">Rust by Example</a></li>
-<li><a href="https://course.rs/about-book.html">Rust 语言圣经</a></li>
-<li><a href="https://tourofrust.com/TOC_zh-cn.html">Rust 语言之旅</a></li>
-<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language</a></li>
+<li>本地测试过了，提交也过了，但，<strong>你真的提交成功了吗</strong>？
+<ol>
+<li>首先你需要确定，你的提交<strong>真的</strong>成功了，确定方法是，进入 github 内，到<strong>你的</strong>那个<code>exam-grading</code>仓库里，看看是否出现了你提交的代码(不管是子模块还是目录，都必然应该有)，如下图，蓝色的是子模块提交上来的，黑色的是目录，你需要点进去看看你的代码是否在里面
+<img src="../resources/%E5%AD%90%E6%A8%A1%E5%9D%97%E5%92%8C%E7%9B%AE%E5%BD%95%E7%A4%BA%E4%BE%8B.png" alt="" /></li>
+<li>在确定你写的代码在里面之后，你需要先去看看，是不是远程运行测试过程中出现了问题。操作流程是，在进入到 github 里的，<strong>你的</strong>那个<code>exam-grading</code>后，点击上面的 Actions，看 workflow 的状态。如果报红，那就说明，可能是测试本身出了问题，这时候请去群里问助教。如果是绿色的，请继续排查。下图是<strong>绿色的</strong>示例：
+<img src="../resources/Actions%E7%A4%BA%E4%BE%8B.png" alt="" /></li>
+<li>点进去最上面的那个绿色的 workflow，先看到的应该类似下面的图，绿色的代表被执行了，灰色的代表被跳过了，下图中展示的是导学阶段的两个测试被成功执行，专业阶段的被跳过了，<strong>被跳过的原因是</strong>，<strong>命名不对</strong>。
+<img src="../resources/Actions%E7%A4%BA%E4%BE%8B2.png" alt="" /></li>
+<li>如果上面这些也都正常了，那么，恭喜你，你的提交应该已经成功了，那么就需要继续排查了...</li>
 </ol>
-<p><strong>入门课程：</strong></p>
+</li>
+<li>提交成功后没有出现名字的，大致是下面三种情况：
 <ol>
-<li><a href="https://lab.cs.tsinghua.edu.cn/rust/">清华计算机系大一学生 2022 暑期课程：Rust 程序设计训练</a></li>
-<li><a href="https://reberhardt.com/cs110l/spring-2020/">CS 110L: Safety in Systems Programming : spring 2020</a></li>
+<li>最常见的是，你没有在训练营里绑定你的 GithubName，<a href="../ch2-04.html#5-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84-githubname">绑定教程点这里</a>，<strong>必须</strong>保证，先绑定了，再进行测试，如果已经测试完了才绑定，那就需要重新测试，方法是，<code>rerun action</code>，具体操作自行百度</li>
+<li>另一种情况是，你的<code>exam-grading</code>版本过老，需要更新，更新时，最小量操作的方法是改一下<code>你的exam-grading/.github/workflow/test.yml</code>，把它从官方模板里复制一份贴进去，然后重新 push 一份代码跑测试</li>
 </ol>
-<p><strong>小练习：</strong></p>
-<ol>
-<li><a href="https://github.com/rust-lang/rustlings/">rustlings</a></li>
-<li><a href="https://dtolnay.github.io/rust-quiz/1">32 Rust Quizes</a></li>
-<li><a href="https://github.com/sunface/rust-by-practice">Rust 语言实战</a>（Rust 语言圣经配套习题）</li>
-</ol>
-<p><strong>进阶：</strong></p>
-<ol>
-<li><a href="https://nomicon.purewhite.io/intro.html">死灵书</a></li>
-<li><a href="https://rust-unofficial.github.io/too-many-lists/">Learn Rust With Entirely Too Many Linked Lists</a></li>
-<li><a href="https://doc.rust-lang.org/stable/cargo/">The Cargo Book</a></li>
-<li><a href="https://github.com/TianyiShi2001/Algorithms">Algorithm in Rust</a>: 基于 Rust 语言的经典算法</li>
-</ol>
-<p><strong>其它：</strong></p>
-<p><a href="https://cheats.rs/">Rust Languange Cheat Sheet</a></p>
-<h2 id="git-学习资料"><a class="header" href="#git-学习资料">Git 学习资料</a></h2>
-<ol>
-<li><a href="https://git-scm.com/book/zh/v2">Pro Git</a></li>
-<li><a href="https://www.runoob.com/git/git-tutorial.html">Git 教程 | 菜鸟教程</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git 教程 | 廖雪峰</a></li>
-<li><a href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></li>
-</ol>
-<h2 id="线代基础"><a class="header" href="#线代基础">线代基础</a></h2>
-<ol>
-<li><a href="https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/syllabus/">MIT18.06: Linear Algebra</a></li>
-<li><a href="https://www.bilibili.com/video/BV1ys411472E/?share_source=copy_web&amp;vd_source=bd0d9cfe83bf4e5e5e8e8ceba827e4b7">线性代数的本质-3Blue1Brown</a></li>
-<li><a href="https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra?tab=readme-ov-file">The Art of Linear Algebra</a></li>
+</li>
+<li>还有可能是其它种种情况，如遇此，请去群里问助教</li>
 </ol>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="problems/2024w.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../problems/2024s.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="appendix-B.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../appendix-A.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -214,11 +215,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="problems/2024w.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../problems/2024s.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="appendix-B.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../appendix-A.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -233,13 +234,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
 

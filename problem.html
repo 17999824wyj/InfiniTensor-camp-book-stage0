@@ -159,6 +159,7 @@
 <ul>
 <li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li>
 <li><a href="#1-cpp-%E7%AC%AC-30-%E9%A2%98">1. Cpp 第 30 题</a></li>
+<li><a href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E8%BF%87%E4%BA%86%E6%8F%90%E4%BA%A4%E5%90%8E%E6%A6%9C%E5%8D%95%E4%B8%8A%E8%BF%98%E6%98%AF%E6%B2%A1%E6%9C%89%E6%88%91">2. 为什么本地测试过了，提交后榜单上还是没有我？</a></li>
 <li><a href="#%E5%BE%80%E6%9C%9F-qa-%E5%AF%BC%E8%88%AA">往期 QA 导航</a></li>
 </ul>
 </li>
@@ -174,6 +175,28 @@
 <image src="./resources/kali-析构.png" style="display: inline-block;" width=60%>
 </p>
 <p>可以看到，虽然代码一样，但析构顺序是不同的。此问题的解决方法是，请确保析构顺序是确定的，即以 CI 中的 gcc 顺序为标准。</p>
+<h2 id="2-为什么本地测试过了提交后榜单上还是没有我"><a class="header" href="#2-为什么本地测试过了提交后榜单上还是没有我">2. 为什么本地测试过了，提交后榜单上还是没有我？</a></h2>
+<p>这个情况非常常见...，但根据经验，只有极小部分是由于训练营的后端出现了问题，更大可能是你的操作出现了问题，大致排查的流程如下：</p>
+<ol>
+<li>本地测试过了，提交也过了，但，<strong>你真的提交成功了吗</strong>？
+<ol>
+<li>首先你需要确定，你的提交<strong>真的</strong>成功了，确定方法是，进入 github 内，到<strong>你的</strong>那个<code>exam-grading</code>仓库里，看看是否出现了你提交的代码(不管是子模块还是目录，都必然应该有)，如下图，蓝色的是子模块提交上来的，黑色的是目录，你需要点进去看看你的代码是否在里面
+<img src="./resources/%E5%AD%90%E6%A8%A1%E5%9D%97%E5%92%8C%E7%9B%AE%E5%BD%95%E7%A4%BA%E4%BE%8B.png" alt="" /></li>
+<li>在确定你写的代码在里面之后，你需要先去看看，是不是远程运行测试过程中出现了问题。操作流程是，在进入到 github 里的，<strong>你的</strong>那个<code>exam-grading</code>后，点击上面的 Actions，看 workflow 的状态。如果报红，那就说明，可能是测试本身出了问题，这时候请去群里问助教。如果是绿色的，请继续排查。下图是<strong>绿色的</strong>示例：
+<img src="./resources/Actions%E7%A4%BA%E4%BE%8B.png" alt="" /></li>
+<li>点进去最上面的那个绿色的 workflow，先看到的应该类似下面的图，绿色的代表被执行了，灰色的代表被跳过了，下图中展示的是导学阶段的两个测试被成功执行，专业阶段的被跳过了，<strong>被跳过的原因是</strong>，<strong>命名不对</strong>。
+<img src="./resources/Actions%E7%A4%BA%E4%BE%8B2.png" alt="" /></li>
+<li>如果上面这些也都正常了，那么，恭喜你，你的提交应该已经成功了，那么就需要继续排查了...</li>
+</ol>
+</li>
+<li>提交成功后没有出现名字的，大致是下面三种情况：
+<ol>
+<li>最常见的是，你没有在训练营里绑定你的 GithubName，<a href="./ch2-04.html#5-%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84-githubname">绑定教程点这里</a>，<strong>必须</strong>保证，先绑定了，再进行测试，如果已经测试完了才绑定，那就需要重新测试，方法是，<code>rerun action</code>，具体操作自行百度</li>
+<li>另一种情况是，你的<code>exam-grading</code>版本过老，需要更新，更新时，最小量操作的方法是改一下<code>你的exam-grading/.github/workflow/test.yml</code>，把它从官方模板里复制一份贴进去，然后重新 push 一份代码跑测试</li>
+</ol>
+</li>
+<li>还有可能是其它种种情况，如遇此，请去群里问助教</li>
+</ol>
 <h2 id="往期-qa-导航"><a class="header" href="#往期-qa-导航">往期 QA 导航</a></h2>
 <ul>
 <li><a href="./problems/2024s.html">2024 夏秋季</a></li>
@@ -183,7 +206,7 @@
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="ch5-02.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="ch5-04.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
@@ -197,7 +220,7 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="ch5-02.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="ch5-04.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
