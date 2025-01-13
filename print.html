@@ -1344,11 +1344,11 @@ ls
 <p>有同学提到，Cpp 的析构顺序与平台是相关的，具体情况如下：</p>
 <p>在 windows 里(MSVC)：</p>
 <p align="center">
-<image src="./resources/win-析构.png" style="display: inline-block;" width=60%>
+<image src="../resources/win-析构.png" style="display: inline-block;" width=60%>
 </p>
 <p>在 kali 里(gcc)：</p>
 <p align="center">
-<image src="./resources/kali-析构.png" style="display: inline-block;" width=60%>
+<image src="../resources/kali-析构.png" style="display: inline-block;" width=60%>
 </p>
 <p>可以看到，虽然代码一样，但析构顺序是不同的。此问题的解决方法是，请确保析构顺序是确定的，即以 CI 中的 gcc 顺序为标准。</p>
 <h2 id="2-为什么本地测试过了提交后榜单上还是没有我-1"><a class="header" href="#2-为什么本地测试过了提交后榜单上还是没有我-1">2. 为什么本地测试过了，提交后榜单上还是没有我？</a></h2>
