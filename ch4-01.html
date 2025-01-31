@@ -176,8 +176,18 @@
 </code></pre>
 <p>注：有时候网络质量不好导致拉取超时，则可以尝试等网络质量好的时候再下载！</p>
 <p>此步骤结束后，应该如下所示：</p>
-<pre><code class="language-bash">$ ls
-$ InfiniLM
+<pre><code class="language-bash"># PS: 有美元符的代表命令，没有的代表输出
+$ ls
+InfiniLM
+</code></pre>
+<p>然后我们需要将分支切换一下：</p>
+<pre><code class="language-bash">$ cd InfiniLM
+$ git switch version1
+</code></pre>
+<p>之后确认一下我们的操作没问题：</p>
+<pre><code class="language-bash">$ git branch
+  main
+* version1
 </code></pre>
 <h2 id="2-下载模型"><a class="header" href="#2-下载模型">2. 下载模型</a></h2>
 <h3 id="下载命令"><a class="header" href="#下载命令">下载命令</a></h3>
